@@ -1,15 +1,19 @@
+/* @flow */
 import React from 'react';
-import Form from './Form.js';
+import Form from "./Form.js";
 
-const App = () => {
+const App = ({onSubmit, message}) => {
 	return (
 		<div className="App">
 			<div className="App-header">
 				<h2>This is my model form...</h2>
 			</div>
-			<p className="App-intro">
-				<Form />
-			</p>
+			<div className="App-intro">
+				<Form onSubmit={onSubmit} />
+				<div className="Submittion">
+					{message}
+				</div>
+			</div>
 		</div>
 	);
 };

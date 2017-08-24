@@ -3,14 +3,19 @@ import React from "react";
 import PropTypes from 'prop-types';
 import { Field, reduxForm } from "redux-form";
 
-const ModelForm = ({ handleSubmit }) => {
+type Props = {
+	handleSubmit: (e: SyntheticEvent) => boolean
+};
+
+const ModelForm = ({handleSubmit}: Props, test: string) => {
   return (
     <form onSubmit={handleSubmit}>
       <div>
         <label htmlFor="message">Message</label>
         <Field name="message" component="input" type="text" />
-      </div>
-    </form>
+			</div>
+			<button type="submit">Submit</button>
+		</form>
   );
 };
 

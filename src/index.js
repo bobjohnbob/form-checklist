@@ -4,9 +4,11 @@ import { createStore, combineReducers } from "redux";
 import { reducer as formReducer } from "redux-form";
 import { Provider } from "react-redux";
 
-import App from "./components/App.js";
+import AppComponent from "./components/App.js";
 import reducers from "./reducers/";
 import registerServiceWorker from "./registerServiceWorker";
+import LocalForm from "./containers/LocalForm.js";
+const App = LocalForm(AppComponent);
 
 const store = createStore(
 	combineReducers({
@@ -15,7 +17,8 @@ const store = createStore(
   })
 );
 
-/* global document */
+/* global document window*/
+window.store = store;
 ReactDOM.render(
   <Provider store={store}>
     <App />
